@@ -24,7 +24,6 @@ maxAPI.addHandler("motion", (...args) =>
 	{
 		location.x = width;
 	}
-	  
 	if (location.y > height) 
 	{
 		location.y = 0;
@@ -38,9 +37,9 @@ maxAPI.addHandler("motion", (...args) =>
 	//Circle.PI = 3.14159;
 	Circle.prototype.area = Circle_area;
 	Circle.PI = 3.14159;
-	var c = new Circle(1.0); // create an instance of the Circle class 
+	var c = new Circle(1.0); // create an instance of the Circle class  
 	c.r = 2.2; // set the r instance variable
-	var a = c.area(); // invoke the area() instance method
+	var a = c.area(); // invoke the area() instance method 
 	var x = Math.exp(Circle.PI); // use the PI class variable in our own computation. 
 	
 	maxAPI.outlet("testClass", x);
@@ -49,7 +48,6 @@ function Circle(radius) {
 	this.r = radius;
 	}
 function Circle_area() { return Circle.PI * this.r * this.r;}
-   
 function Circle_max(a,b) {
 	if (a.r > b.r) return a;
 	else return b;
