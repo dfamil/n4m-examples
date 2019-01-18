@@ -9,7 +9,7 @@ var location = new Victor(100, 100);
 var velocity = new Victor(2, 2.5);
 maxAPI.addHandler("locationVelocity", (...args) =>
 {
-	location.add(velocity)
+	location.add(velocity);
 	if ((location.x > width) || (location.x < 0)) {
 		velocity.x = velocity.x * -1;
 	}
