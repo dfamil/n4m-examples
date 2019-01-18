@@ -1,6 +1,6 @@
  "use strict";
 
-// Require the max-api module to connect to Max via node.script 
+// Require the max-api module to connect to Max via node.script
 const maxAPI = require("max-api");
 var add = require('vectors/add')(2)
 var mag = require('vectors/mag')(2)
@@ -33,11 +33,9 @@ maxAPI.addHandler("vectorMag", (...args) =>
 
 console.log("magOutput")
 	 console.log(magOutput);
-	//maxAPI.outlet(magOutput);
+	// maxAPI.outlet(magOutput);
 	maxAPI.outlet("magVectorOutput", magOutput);
 	
-	//maxAPI.outlet("magVectorOutput",magOutput); 
-
-
-	
+	// maxAPI.outlet("magVectorOutput",magOutput);
 });
+
