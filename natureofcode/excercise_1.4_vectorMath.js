@@ -81,7 +81,7 @@ maxAPI.addHandler("divVectors", (...args) => {
 maxAPI.addHandler("magVector", (...args) => {
 	var vector1 = [args[1], args[2]];
 	// var vector3 = [args[5], args[6]];
-	mag(vector1)
+	mag(vector1);
 		
 	maxAPI.outlet(vector1);
 	maxAPI.outlet("magVectorOutput",vector1[1]);
@@ -99,7 +99,7 @@ maxAPI.addHandler("normVector", (...args) => {
 maxAPI.addHandler("headingVector", (...args) => {
 	var vector1 = [args[1], args[2]];
 	var vector2 = [args[3], args[4]];
-	var head = (heading(vector1,vector2)) * 180 / Math.PI	
+	var head = (heading(vector1,vector2)) * 180 / Math.PI;	
 	maxAPI.outlet(head);
 	maxAPI.outlet("headingVectorOutput", head);
 });
@@ -107,7 +107,7 @@ maxAPI.addHandler("headingVector", (...args) => {
 maxAPI.addHandler("dotVector", (...args) => {
 	var vector1 = [args[1], args[2]];
 	var vector2 = [args[3], args[4]];
-	var dots = dot(vector1, vector2)
+	var dots = dot(vector1, vector2);
 	maxAPI.outlet(dots);
 	maxAPI.outlet("dotVectorOutput", dot(vector1, vector2));
 });
