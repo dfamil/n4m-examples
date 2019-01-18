@@ -5,11 +5,11 @@ const maxAPI = require("max-api");
 var Victor = require('victor')
 const random = require('random')
 
-var width = 600;
-var height = 400
-//var vec2 = new Victor(0,0);
-var location = new Victor(random.float(0, 600), random.float(0, 200));
-var velocity = new Victor(random.float( -2, 2), random.float(-2, 2));
+// var width = 600;
+// var height = 400
+// var vec2 = new Victor(0,0);
+// var location = new Victor(random.float(0, 600), random.float(0, 200));
+// var velocity = new Victor(random.float( -2, 2), random.float(-2, 2));
 
 maxAPI.addHandler("motion", (...args) => 
 	{
