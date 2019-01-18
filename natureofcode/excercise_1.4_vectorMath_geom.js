@@ -10,7 +10,7 @@ var speed = [];
 // The "..." is  the spread operator. All of the arguments to this function will go into args as an array.
 //
 maxAPI.addHandler("text1", (...args) => {
-// The outlet function sends the arguments right back to Max. Hence, echo. 
+// The outlet function sends the arguments right back to Max. Hence, echo.
 	maxAPI.outlet(...args);
 });
 
@@ -24,9 +24,9 @@ maxAPI.addHandler("textRoute", (...args) => {
 maxAPI.addHandler("locationVelocity", (...args) => {
 	location = [args[1], args[2]]
 	speed = [args[3], args[4]]
-    add(location,speed)
-    maxAPI.outlet(location);
-    maxAPI.outlet("locationVelocityOutput",...location);
+	add(location,speed)
+	maxAPI.outlet(location);
+	maxAPI.outlet("locationVelocityOutput",...location);
 });
 maxAPI.addHandler("addingVectors", (...args) => {
 	
