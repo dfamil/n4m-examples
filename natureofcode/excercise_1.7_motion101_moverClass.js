@@ -2,45 +2,43 @@
 
 // Require the max-api module to connect to Max via node.script
 const maxAPI = require("max-api");
-// var Victor = require("victor");
-// const random = require("random");
+var Victor = require("victor");
+const random = require("random");
 
-var width = 600;
-var height = 400;
-// var vec2 = new Victor(0,0);
-// var location = new Victor(random.float(0, 600), random.float(0, 200));
-// var velocity = new Victor(random.float( -2, 2), random.float(-2, 2));
+var location1 = new Victor(random.float(0, 600), random.float(0, 200));
+var velocity1 = new Victor(random.float( -2, 2), random.float(-2, 2));
 
 class Mover {
-	constructor()
+	constructor(location, velocity, width, height)
 	{
-		// var location = new Victor(random.float(0, 600), random.float(0, 200));
-		// var velocity = new Victor(random.float( -2, 2), random.float(-2, 2));
-		// var topspeed = 6;
+		this.location = location;
+		this.velocity = velocity;
+		this.width = width;
+		this.height = height;
 	}
 	update()
 	{
-		// location.add(velocity);
+		this.location.add(this.velocity);
 	}
 
 	display()
 	{
-		maxAPI.outlet("newLocationOutput", location.x, location.y);
+		maxAPI.outlet("newLocationOutput", this.location.x, this.location.y);
 	}
 
 	checkEdges() {
 
-		if (location.x > width) {
-			location.x = 0;
+		if (this.location.x > this.width) {
+			this.location.x = 0;
 		}
-		else if (location.x < 0) {
-			location.x = width;
+		else if (this.location.x < 0) {
+			this.location.x = this.width;
 		}
-		if (location.y > height) {
-			location.y = 0;
+		if (this.location.y > this.height) {
+			this.location.y = 0;
 		}
-		else if (location.y < 0) {
-			location.y = height;
+		else if (this.location.y < 0) {
+			this.location.y = this.height;
 		}
 	}
 }
@@ -49,6 +47,10 @@ class Mover {
 maxAPI.addHandler("motion", (...args) =>
 {
 	var mover = new Mover();
+	mover.width = 600;
+	mover.height = 400;
+	mover.location = location1;
+	mover.velocity = velocity1;
 	mover.update();
 	mover.checkEdges();
 	mover.display();
