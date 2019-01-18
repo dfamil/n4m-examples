@@ -1,8 +1,7 @@
 "use strict";
 
-// Require the max-api module to connect to Max via node.script 
+// Require the max-api module to connect to Max via node.script	
 const maxAPI = require("max-api");
-
 var Victor = require("victor");
 var width = 600;
 var height = 400
@@ -17,6 +16,6 @@ maxAPI.addHandler("locationVelocity", (...args) =>
 	if ((location.y > height) || (location.y < 0)) {
 		velocity.y = velocity.y * -1;
 	}
-maxAPI.outlet("newLocationOutput", location.x,location.y);
+	maxAPI.outlet("newLocationOutput", location.x,location.y);
 });
 
