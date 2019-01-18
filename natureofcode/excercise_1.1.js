@@ -9,11 +9,11 @@ var yspeed = 3.3;
 
 maxAPI.addHandler("locationVelocity", (...args)=>
 {
-	x = x + xspeed;//Move the ball according to its speed.
+	x = x + xspeed;//Move the ball according to its speed
 	y = y + yspeed;
 
-	if ((x > 130) || (x < 0)) { 
-	//Check for bouncing.
+	if ((x > 130) || (x < 0)) 
+	{ //Check for bouncing.
 		xspeed = xspeed * -1;
 	}
 	if ((y > 130) || (y < 0))
