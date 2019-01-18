@@ -2,14 +2,14 @@
 
 // Require the max-api module to connect to Max via node.script 
 const maxAPI = require("max-api");
-var add = require('vectors/add')(2)
-var sub = require('vectors/sub')(2)
-var mult = require('vectors/mult')(2)
-var div = require('vectors/div')(2)
-var mag = require('vectors/mag')(2)
-var dot = require('vectors/dot')(2)
-var norm = require("vectors/normalize")(2)
-var heading = require("vectors/heading")(2)
+var add = require('vectors/add')(2);
+var sub = require('vectors/sub')(2);
+var mult = require('vectors/mult')(2);
+var div = require('vectors/div')(2);
+var mag = require('vectors/mag')(2);
+var dot = require('vectors/dot')(2);
+var norm = require("vectors/normalize")(2);
+var heading = require("vectors/heading")(2);
 
 var location = [];
 var speed = [];
@@ -22,16 +22,16 @@ maxAPI.addHandler("text1", (...args) => {
 });
 
 maxAPI.addHandler("textRoute", (...args) => {
-	add(location,speed)
+	add(location,speed);
 	// The outlet function sends the arguments right back to Max. Hence, echo. 
 	//maxAPI.outlet("textRouteOutput", ...args);
 	maxAPI.outlet("addVectors",5);
 });
 
 maxAPI.addHandler("locationVelocity", (...args) => {
-	location = [args[1], args[2]]
-	speed = [args[3], args[4]
-	add(location,speed)
+	location = [args[1], args[2]];
+	speed = [args[3], args[4];
+	add(location,speed);
 	maxAPI.outlet(location);
 	maxAPI.outlet("locationVelocityOutput",...location);
 });
@@ -40,8 +40,8 @@ maxAPI.addHandler("addingVectors", (...args) => {
 	var vector2 = [args[3], args[4]];
 	var vector3 = [args[5], args[6]];
 
-	add(vector1,vector2)
-	add(vector1,vector3)
+	add(vector1,vector2);
+	add(vector1,vector3);
 	
 	maxAPI.outlet(vector1);
 	maxAPI.outlet("addingVectorsOutput",...vector1);
@@ -52,7 +52,7 @@ maxAPI.addHandler("subtractVectors", (...args) => {
 	var vector2 = [args[3], args[4]];
 	//var vector3 = [args[5], args[6]];
 	sub(vector1,vector2)
-	//sub(vector1,vector3)
+	//sub(vector1,vector3) 
 	
 	maxAPI.outlet(vector1);
 	maxAPI.outlet("subtractVectorsOutput",...vector1);
@@ -90,7 +90,7 @@ maxAPI.addHandler("magVector", (...args) => {
 maxAPI.addHandler("normVector", (...args) => {
 	var vector1 = [args[1], args[2]];
 	//var vector3 = [args[5], args[6]];
-	norm(vector1)
+	norm(vector1);
 		
 	maxAPI.outlet(vector1);
 	maxAPI.outlet("normVectorOutput",vector1[1]);
@@ -111,6 +111,4 @@ maxAPI.addHandler("dotVector", (...args) => {
 	maxAPI.outlet(dots);
 	maxAPI.outlet("dotVectorOutput", dot(vector1, vector2));
 });
-
-
 
