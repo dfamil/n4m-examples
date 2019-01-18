@@ -17,6 +17,6 @@ maxAPI.addHandler("locationVelocity", (...args) =>
 	if ((location.y > height) || (location.y < 0)) {
 		velocity.y = velocity.y * -1;
 	}
-maxAPI.outlet("newLocationOutput",location.x,location.y);
-
+maxAPI.outlet("newLocationOutput", location.x,location.y);
 });
+
