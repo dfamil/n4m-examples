@@ -1,11 +1,11 @@
 "use strict";
 
-// Require the max-api module to connect to Max via node.script  
+// Require the max-api module to connect to Max via node.script
 const maxAPI = require("max-api");
 var Victor = require('victor')
 var center = []
 var mouse = []
-//var vec2 = new Victor(0, 0); 
+// var vec2 = new Victor(0, 0);
 maxAPI.addHandler("vectorNormlize", (...args) => 
 	{
 	//vec2 = new Victor(0, 0);
@@ -17,21 +17,18 @@ maxAPI.addHandler("vectorNormlize", (...args) =>
 	mouse.subtract(center);
 	var vec2 = test.normalize();
 	var vec3 = mouse.normalize();
-//maxAPI.outlet("normVector",vec3.toString()); 
-   // maxAPI.outlet("normVectorLenght",vec3.length()); 
+	// maxAPI.outlet("normVector",vec3.toString());
+	// maxAPI.outlet("normVectorLenght",vec3.length());
 
 	var multiply = vec3.multiply(multiy);
 
 
 
-  console.log(...args);
-  console.log(vec3.toString());
-	  maxAPI.outlet("normVectorMultiply",vec3.x, vec3.y);
+	console.log(...args);
+	console.log(vec3.toString());
+	maxAPI.outlet("normVectorMultiply",vec3.x, vec3.y);
 	
-	//maxAPI.outlet("normVectorLenght",vec3.length()); 
-	//maxAPI.outlet("normVectorOutput",5); 
-
-
-	
+	// maxAPI.outlet("normVectorLenght",vec3.length());
+	// maxAPI.outlet("normVectorOutput",5);
 });
 
