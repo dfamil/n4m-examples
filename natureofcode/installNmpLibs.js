@@ -1,6 +1,6 @@
-/* 
+/*
 load librairies
 	victorjs
 	random
-	mathjs 
+	mathjs
 */
