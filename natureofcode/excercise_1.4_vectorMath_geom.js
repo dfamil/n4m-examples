@@ -2,12 +2,12 @@
 
 // Require the max-api module to connect to Max via node.script
 const maxAPI = require("max-api");
-var Victor = require('victor')
-var vectorArray= [];
+var Victor = require("victor");
+// var vectorArray= [];
 var location = [];
 var speed = [];
-// When node.script gets the symbol "text", the remainder will be passed to this function.
-// The "..." is  the spread operator. All of the arguments to this function will go into args as an array.
+// When nodescript gets the symbol "text", the remainder will be passed to this function
+// The "..." is  the spread operator. All of the arguments to this function will go into args as an array
 //
 maxAPI.addHandler("text1", (...args) => {
 // The outlet function sends the arguments right back to Max. Hence, echo.
@@ -17,14 +17,14 @@ maxAPI.addHandler("text1", (...args) => {
 maxAPI.addHandler("textRoute", (...args) => {
 	add(location,speed)
 	// The outlet function sends the arguments right back to Max. Hence, echo.
-	// maxAPI.outlet("textRouteOutput", ...args);
-	maxAPI.outlet("addVectors",5);
+	// maxAPIoutlet("textRouteOutput", ...args);
+	maxAPI.outlet("addVectors", 5);
 });
 
 maxAPI.addHandler("locationVelocity", (...args) => {
 	location = [args[1], args[2]]
 	speed = [args[3], args[4]]
-	add(location,speed)
+	add(location,speed);
 	maxAPI.outlet(location);
 	maxAPI.outlet("locationVelocityOutput",...location);
 });
@@ -34,8 +34,8 @@ maxAPI.addHandler("addingVectors", (...args) => {
 	var vector2 = new Victor(args[3], args[4]);
 	
 	var ret = vector1.add(vector2);
-	var vectorArray= [ret.x,ret.y];
-	// maxAPI.outlet(vector1);
+	var vectorArray= [ret.x, ret.y];
+	// maxAPIoutlet(vector1);
 	maxAPI.outlet("addingVectorsOutput",...vectorArray);
 });
 
@@ -44,8 +44,8 @@ maxAPI.addHandler("subtractVectors", (...args) => {
 	var vector2 = new Victor(args[3], args[4]);
 	
 	var ret = vector1.subtract(vector2);
-	var vectorArray= [ret.x,ret.y];
-	// maxAPI.outlet(vector1);
+	var vectorArray= [ret.x, ret.y];
+	// maxAPIoutlet(vector1);
 	maxAPI.outlet("subtracVectorsOutput",...vectorArray);
 });
 
@@ -54,7 +54,7 @@ maxAPI.addHandler("multVectors", (...args) => {
 	var vector2 = new Victor(args[3], args[4]);
 	
 	var ret = vector1.multiply(vector2);
-	var vectorArray= [ret.x,ret.y];
+	var vectorArray= [ret.x, ret.y];
 	
 	maxAPI.outlet(vector1);
 	maxAPI.outlet("multVectorsOutput", ...vectorArray);
@@ -65,7 +65,7 @@ maxAPI.addHandler("divVectors", (...args) => {
 	var vector2 = new Victor(args[3], args[4]);
 	
 	var ret = vector1.divide(vector2);
-	var vectorArray= [ret.x,ret.y];
+	var vectorArray= [ret.x, ret.y];
 	// maxAPI.outlet(vector1);
 		
 	maxAPI.outlet(vector1);
@@ -95,7 +95,7 @@ maxAPI.addHandler("headingVector", (...args) => {
 	// var head = (heading(vector1,vector2)) * 180 / Math.PI	 
 	var heading = vector1.verticalAngleDeg();
 	maxAPI.outlet(heading);
-	maxAPI.outlet("headingVectorOutput",heading);
+	maxAPI.outlet("headingVectorOutput", heading);
 });
 
 maxAPI.addHandler("dotVector", (...args) => {
