@@ -1,9 +1,9 @@
 "use strict";
 
-// Require the max-api module to connect to Max via node.script 
+// Require the max-api module to connect to Max via node.script
 const maxAPI = require("max-api");
-var Victor = require('victor')
-const random = require('random')
+var Victor = require("victor")
+const random = require("random")
 
 // var width = 600;
 // var height = 400
@@ -16,8 +16,8 @@ maxAPI.addHandler("motion", (...args) =>
 		var mover = new Mover();
 		mover.update();
 		mover.checkEdges();
-		mover.display(); 
-	 
+		mover.display();
+	
 });
 
 class Mover{
