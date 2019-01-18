@@ -41,7 +41,6 @@ maxAPI.addHandler("motion", (...args) =>
 	c.r = 2.2; // set the r instance variable
 	var a = c.area(); // invoke the area() instance method 
 	var x = Math.exp(Circle.PI); // use the PI class variable in our own computation. 
-	
 	maxAPI.outlet("testClass", x);
 });
 function Circle(radius) {
