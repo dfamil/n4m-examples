@@ -30,7 +30,7 @@ maxAPI.addHandler("textRoute", (...args) => {
 
 maxAPI.addHandler("locationVelocity", (...args) => {
 	location = [args[1], args[2]];
-	speed = [args[3], args[4];
+	speed = [args[3], args[4]];
 	add(location,speed);
 	maxAPI.outlet(location);
 	maxAPI.outlet("locationVelocityOutput",...location);
