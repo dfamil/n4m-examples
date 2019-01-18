@@ -1,6 +1,6 @@
 "use strict";
 
-// Require the max-api module to connect to Max via node.script
+// Require the max-api module to connect to Max via node.script 
 const maxAPI = require("max-api");
 var vectorsGeom = require('geom-vector2d')
 var Victor = require('victor')
@@ -15,17 +15,17 @@ var heading = require("vectors/heading")(2)
 var vectorArray= [];	
 var location = [];
 var speed = [];
-// When node.script gets the symbol "text", the remainder will be passed to this function.
-// The "..." is  the spread operator. All of the arguments to this function will go into args as an array.
+// When node.script gets the symbol "text", the remainder will be passed to this function. 
+// The "..." is  the spread operator. All of the arguments to this function will go into args as an array. 
 //
 maxAPI.addHandler("text1", (...args) => {
-// The outlet function sends the arguments right back to Max. Hence, echo.
+// The outlet function sends the arguments right back to Max. Hence, echo. 
 	maxAPI.outlet(...args);
 });
 
 maxAPI.addHandler("textRoute", (...args) => {
 	add(location,speed)
-	// The outlet function sends the arguments right back to Max. Hence, echo.
+	// The outlet function sends the arguments right back to Max. Hence, echo. 
 	//maxAPI.outlet("textRouteOutput", ...args);
 	maxAPI.outlet("addVectors",5);
 });
@@ -66,7 +66,7 @@ maxAPI.addHandler("multVectors", (...args) => {
 	var vectorArray= [ret.x,ret.y];
 	
     maxAPI.outlet(vector1);
-    maxAPI.outlet("multVectorsOutput",...vectorArray);
+    maxAPI.outlet("multVectorsOutput", ...vectorArray);
 });
 
 maxAPI.addHandler("divVectors", (...args) => {
@@ -78,30 +78,30 @@ maxAPI.addHandler("divVectors", (...args) => {
     //maxAPI.outlet(vector1);
 		
     maxAPI.outlet(vector1);
-    maxAPI.outlet("divVectorsOutput",...vectorArray);
+    maxAPI.outlet("divVectorsOutput", ...vectorArray);
 });
 
 maxAPI.addHandler("magVector", (...args) => {
 	var vector1 = new Victor(args[1], args[2]);
-	//var vector3 = [args[5], args[6]];
+	//var vector3 = [args[5], args[6]]; 
 	var ret= vector1.magnitude();
 		
     maxAPI.outlet(ret);
-    maxAPI.outlet("magVectorOutput",ret);
+    maxAPI.outlet("magVectorOutput", ret);
 });
 
 maxAPI.addHandler("normVector", (...args) => {
 	var vector1 = new Victor(args[1], args[2]);
 	var ret= vector1.normalize();
-	var vectorArray= [ret.x,ret.y];	
+	var vectorArray= [ret.x, ret.y];	
     maxAPI.outlet(...vectorArray);
-    maxAPI.outlet("normVectorOutput",...vectorArray);
+    maxAPI.outlet("normVectorOutput", ...vectorArray);
 });
 
 maxAPI.addHandler("headingVector", (...args) => {
 	var vector1 = new Victor(args[1], args[2]);
-	//var heading = (heading(vector1,vector2))
-	//var head = (heading(vector1,vector2)) * 180 / Math.PI	
+	//var heading = (heading(vector1,vector2)) 
+	//var head = (heading(vector1,vector2)) * 180 / Math.PI	 
 	var heading = vector1.verticalAngleDeg();
     maxAPI.outlet(heading);
     maxAPI.outlet("headingVectorOutput",heading);
@@ -113,8 +113,6 @@ maxAPI.addHandler("dotVector", (...args) => {
 	
 	var dots = vector1.dot(vector2);
 	maxAPI.outlet(dots);
-	maxAPI.outlet("dotVectorOutput",dots);
+	maxAPI.outlet("dotVectorOutput", dots);
 });
-
-
 
