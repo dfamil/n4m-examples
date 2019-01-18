@@ -4,10 +4,10 @@
 const maxAPI = require("max-api");
 var Victor = require("victor");
 const random = require("random");
-var width = 600;
-var height = 400;
-var location = new Victor(random.float(0, 600), random.float(0, 200));
-var velocity = new Victor(random.float( -2, 4), random.float(-2, 4));
+var width = 750;
+var height = 550;
+var location = new Victor(random.float(0, 300), random.float(0, 200));
+var velocity = new Victor(random.float( 2, 4), random.float(2, 4));
 
 maxAPI.addHandler("motion", (...args) =>
 {
@@ -28,6 +28,6 @@ maxAPI.addHandler("motion", (...args) =>
 	}
 	console.log(location.x);
 	console.log(location.y);
-
+	console.log(velocity.toString());
 	maxAPI.outlet("newLocationOutput", location.x, location.y);
 });
