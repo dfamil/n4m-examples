@@ -35,5 +35,8 @@
   "devDependencies": {
     "eslint": "^5.7.0",
     "eslint-config-c74": "^1.0.0"
+  },
+  "dependencies": {
+    "lint": "^1.1.2"
   }
 }
