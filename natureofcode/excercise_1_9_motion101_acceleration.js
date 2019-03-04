@@ -4,16 +4,16 @@
 const maxAPI = require("max-api");
 var Victor = require("victor");
 var random = require("random");
-//var mathplus = require("math-plus");
-//var randomVec = require("gl-matrix/random");
+// var mathplus = require("math-plus");
+// var randomVec = require("gl-matrix/random");
 var Vector2 = require("gl-matrix/vec2");
-var width1 = 600
+var width1 = 600;
 var height1 = 400;
-var location1 = new Victor(width1/2, height1/2);
-var velocity1 = new Victor(0,0);
-var acceleration1 = new Victor(1,1);
-var accelerationVectandomNum1 = Vector2.fromValues(1,200);
-var randomNum1 = random.float(0.1,1.9);
+var location1 = new Victor(width1 / 2, height1 / 2);
+var velocity1 = new Victor(0, 0);
+var acceleration1 = new Victor(1, 1);
+// var accelerationVectandomNum1 = Vector2.fromValues(1, 200);
+var randomNum1 = random.float(0.1, 1.9);
 
 class Mover {
 	constructor(location, velocity, width, height, acceleration, topspeed, randomNum)
@@ -24,21 +24,19 @@ class Mover {
 		this.height = height;
 		this.acceleration = acceleration;
 		this.topspeed = topspeed;
-		this.randomNum = randomNum
+		this.randomNum = randomNum;
 	}
 	update()
 	{
 
 		this.acceleration = Vector2.random(this.acceleration);
-		this.randomNum = random.float(0,2);
-		
+		this.randomNum = random.float(0, 2);
 		this.acceleration = Vector2.scale(this.acceleration,this.acceleration,this.randomNum); 
 		var accelerationVectors = new Victor(this.acceleration[1], this.acceleration[0]);
-		//console.log("accelerationVector" , accelerationVectors.toString())
-		this.velocity.limit(6,.5);
-		
+		// console.log("accelerationVector" , accelerationVectors.toString())
+		this.velocity.limit(6, 0.5);
 		this.velocity.add(accelerationVectors);
-		//console.log("accelerationVector vector" , newVel.toString())
+		// console.log("accelerationVector vector" , newVel.toString())
 		this.location.add(this.velocity);
 
 	}
