@@ -3,11 +3,11 @@
 // Require the max-api module to connect to Max via node.script
 const maxAPI = require("max-api");
 var Victor = require("victor");
-const random = require("random");
+// const random = require("random");
 var width1 = 600;
 var height1 = 400;
-var location1 = new Victor(width1/2,height1/2);
-var velocity1 = new Victor(0,0);
+var location1 = new Victor(width1 / 2, height1 / 2 );
+var velocity1 = new Victor(0, 0);
 
 class Mover {
 	constructor(location, velocity, width, height, mouse, acceleration,topspeed)
@@ -19,20 +19,15 @@ class Mover {
 		this.mouse = mouse;
 		this.acceleration = acceleration;
 		this.topspeed = topspeed;
-
-		
-
 	}
 	update()
 	{
 		// Compute a vector that points from location to mouse
-		
 		this.acceleration = this.mouse.subtract(this.location);
 		// Set magnitude of acceleration
-		//this.acceleration.setMag(0.2);
+		// this.acceleration.setMag(0.2);
 		this.acceleration.normalize();
-		this.acceleration.mult(0.2);
-		
+		this.acceleration.multiply(0.2);
 		// Velocity changes according to acceleration
 		this.velocity.add(this.acceleration);
 		// Limit the velocity by topspeed
@@ -66,10 +61,11 @@ class Mover {
 
 maxAPI.addHandler("motion", (...args) =>
 {
+	console.log("mouse vector", args[0], args[1]);
 	var mover = new Mover();
 	mover.width = width1;
 	mover.height = height1;
-	mover.mouse = new Victor(args[0],args[1]);
+	mover.mouse = new Victor(args[0], args[1]);
 	mover.location = location1;
 	mover.velocity = velocity1;
 	mover.topspeed = 6;
