@@ -6,7 +6,7 @@ var Victor = require("victor");
 const random = require("random");
 var width1 = 600;
 var height1 = 400;
-var location1 = new Victor(width1/2, height1/2);
+var location1 = new Victor(width1 / 2, height1 / 2);
 var velocity1 = new Victor(0, 0);
 var topspeed1 = 10;
 var acceleration1 = new Victor(-0.001, 0.01);
@@ -24,9 +24,10 @@ class Mover {
 	update()
 	{
 		this.velocity.add(this.acceleration);
-		this.velocity.limit(10, .5);
-		this.location.add(this.velocity);	
-	}	display()
+		this.velocity.limit(10, 0.5);
+		this.location.add(this.velocity);
+	}	
+	display()
 	{
 		maxAPI.outlet("newLocationOutput", this.location.x, this.location.y);
 	}
@@ -55,12 +56,12 @@ maxAPI.addHandler("motion", (...args) =>
 	mover.height = 400;
 	mover.topspeed = topspeed1;
 	mover.location = location1;
-    mover.velocity = velocity1;
+	mover.velocity = velocity1;
 	mover.acceleration = acceleration1;
 	mover.update();
 	mover.checkEdges();
 	mover.display();
-	console.log(random.float()* Math.PI*2);
+	console.log(random.float() * Math.PI * 2);
 
 });
 
