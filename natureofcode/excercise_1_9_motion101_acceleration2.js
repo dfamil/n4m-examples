@@ -78,8 +78,7 @@ class limit(float max) {
   } */
 
 
-  class Limit 
-  {
+class Limit() {
 	constructor(max, velocity)
 		{
 			this.max = max;
@@ -93,8 +92,7 @@ class limit(float max) {
 			this.velocity.mult(this.max);
 		}
 		maxAPI.outlet("newLocationOutput", this.velocity.x, this.velocity.y);
-	}
-		  
+	}	  
 }
 
 
@@ -107,10 +105,10 @@ maxAPI.addHandler("motion", (...args) =>
 
 	mover.width = width1;
 	mover.height = height1;
-	mover.location = new Victor(width1/2, height1/2);
+	mover.location = new Victor(width1 / 2, height1 / 2);
 	mover.velocity = new Victor(0,0);
 	mover.acceleration = new Victor(0,0);
-    mover.topspeed = 6;
+	mover.topspeed = 6;
 	mover.update();
 	mover.checkEdges();
 	mover.display();
