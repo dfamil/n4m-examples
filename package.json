@@ -37,6 +37,7 @@
     "eslint-config-c74": "^1.0.0"
   },
   "dependencies": {
-    "lint": "^1.1.2"
+    "lint": "^1.1.2",
+    "random": "^2.1.1"
   }
 }
